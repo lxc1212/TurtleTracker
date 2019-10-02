@@ -30,8 +30,16 @@ for lineString in lineStrings:
     obsLC = lineData[3]                 # Observation Location Class
     obsLat = lineData[5]                # Observation Latitude
     obsLon = lineData[6]                # Observation Longitude
-    # Add values to dictionary
-    dateDict[recordID] = obsDate
-    locationDict[recordID]= (obsLat,obsLon)
+    #Filter which records are added to the dictionaries
+    if obsLC in ("1","2","3"):
+        # Add values to dictionary
+        dateDict[recordID] = obsDate
+        locationDict[recordID]= (obsLat,obsLon)
 # Indicate script is complete
 print ("Finished")
+list(locationDict.keys())[0]
+print (locationDict['20616'])
+
+
+# Ask the user for a date, specifying the format
+userDate = '7/3/2003' # input("Enter a date (M/D/YYYY):")
